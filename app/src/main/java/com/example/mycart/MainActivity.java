@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
+
+import com.example.mycart.SqlDB.QueryClass;
+import com.example.mycart.SqlDB.SqlDataStore;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,6 +16,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        createTable();
+
+        SqlDataStore sqlDataStore = new SqlDataStore(this);
+        sqlDataStore.open();
+        sqlDataStore.delete(QueryClass.TABLE_ITEMSCART,null);
+        sqlDataStore.close();
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -22,6 +33,21 @@ public class MainActivity extends AppCompatActivity {
         },1000);
 
 
+    }
+
+
+    private void createTable(){
+        try{
+            SqlDataStore sqlDataStore = new SqlDataStore(this);
+            sqlDataStore.open();
+            sqlDataStore.createtable(QueryClass.TABLE_ITEMSCART,QueryClass.CREATE_ITEMSCART);
+
+            sqlDataStore.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }finally {
+            Log.e("Log","TABLES CREATED");
+        }
     }
 
     // TODO: 2020-05-10 For smartphone apps, please set a link to https://icons8.com in the About dialog or settings.

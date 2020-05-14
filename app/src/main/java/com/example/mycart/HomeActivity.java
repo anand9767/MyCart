@@ -6,13 +6,20 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.mycart.Fragments.Adapter.SampleFragmentPagerAdapter;
+import com.example.mycart.Fragments.CartFragment;
 import com.example.mycart.Fragments.GroceryFragment;
 import com.example.mycart.Fragments.VegetablesFragment;
+import com.example.mycart.SqlDB.QueryClass;
+import com.example.mycart.SqlDB.SqlDataStore;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
@@ -37,6 +44,10 @@ public class HomeActivity extends AppCompatActivity {
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
         setupTabIcons();
+        if (checkCartItems()){
+            Toast.makeText(this, "U Have Items in Cart", Toast.LENGTH_LONG).show();
+        }
+
     }
 
     private void init(){
@@ -65,13 +76,21 @@ public class HomeActivity extends AppCompatActivity {
         transaction.commit();
     }
 
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
     BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
             switch (item.getItemId()){
                 case R.id.navigation_cart:
-//                    Toast.makeText(HomeActivity.this, "Cart Clicked", Toast.LENGTH_SHORT).show();
+                    startActivity(new Intent(HomeActivity.this,CartFragment.class));
                     return true;
 
                 case R.id.navigation_home:
@@ -79,11 +98,27 @@ public class HomeActivity extends AppCompatActivity {
                     return true;
 
                 case R.id.navigation_account:
+                    startActivity(new Intent(HomeActivity.this,ProfileActivity.class));
 //                    Toast.makeText(HomeActivity.this, "Account Clicked", Toast.LENGTH_SHORT).show();
                     return true;
             }
             return false;
         }
     };
+
+
+
+    //check if items in cart
+    private boolean checkCartItems() {
+        boolean cartData = false;
+        SqlDataStore sd = new SqlDataStore(HomeActivity.this);
+        sd.open();
+        String s = "SELECT * from " + QueryClass.TABLE_ITEMSCART;
+        Cursor cursor = sd.getData(s);
+        if (cursor.moveToFirst()) {
+            cartData = true;
+        }
+        return cartData;
+    }
 
 }

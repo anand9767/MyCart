@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Fragments.CartFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/app_color">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:onClick="backpressed"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/arrow_back"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/cart"
+                    />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/cartTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:text="0"
+                android:layout_centerVertical="true"
+                android:textSize="20sp"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:layout_marginEnd="15dp"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/emptyMessageLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_centerInParent="true"
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center_horizontal"
+                app:srcCompat="@drawable/ic_report_black_24dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="Looks like it's empty in here "/>
+
+
+
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/cart_recyler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_marginBottom="120dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="70dp"
+            android:textSize="17sp"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/app_color"
+            android:text="Your Delivery Address"
+            />
+
+        <LinearLayout
+            android:id="@+id/buttonsLinearlayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_marginStart="5dp"
+                app:cardCornerRadius="20dp"
+                android:elevation="15dp"
+                android:layout_gravity="center_vertical"
+                android:layout_height="50dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:padding="9dp"
+                    android:textColor="@color/black"
+                    android:layout_gravity="center_vertical"
+                    android:text="Cash On Delivery"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_margin="5dp"
+                android:text="Checkout"
+                android:textAllCaps="true"
+                android:textSize="20sp"
+                android:textColor="@color/white"
+                android:background="@drawable/button_shape"
+                android:layout_alignParentBottom="true"/>
+
+        </LinearLayout>
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+</FrameLayout>

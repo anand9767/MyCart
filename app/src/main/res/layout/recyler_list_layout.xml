@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_margin="5dp"
-    android:elevation="12dp"
+    android:layout_margin="10dp"
+    android:elevation="20dp"
     app:cardCornerRadius="15dp"
     app:cardBackgroundColor="@color/white"
     android:layout_height="160dp">
@@ -32,7 +32,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
-                    android:textSize="25sp"
+                    android:textSize="23sp"
                     android:textStyle="bold"
                     android:layout_marginTop="8dp"
                     android:textColor="@color/app_color"
@@ -41,6 +41,7 @@
                 <TextView
                     android:id="@+id/itemDescTv"
                     android:layout_width="130dp"
+                    android:textSize="13sp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="15dp"
                     android:lines="2"
@@ -57,8 +58,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="15dp"
-                        android:textSize="45sp"
-                        android:textStyle="bold"
+                        android:textSize="35sp"
                         android:layout_marginTop="15dp"
                         android:textColor="@color/app_color"
                         android:text="50"/>
@@ -79,7 +79,6 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginStart="10dp"
                 android:orientation="vertical"
                 >
 
@@ -88,10 +87,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="25dp"
                     android:text="0"
                     android:textColor="#000"
-                    android:textSize="50sp" />
+                    android:textSize="27sp" />
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -101,27 +100,27 @@
 
                     <ImageButton
                         android:id="@+id/stepperPlus"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@color/app_color"
+                        android:layout_width="37dp"
+                        android:layout_height="37dp"
+                        android:background="@color/white"
                         app:srcCompat="@drawable/ic_add_box_black_24dp"/>
 
                     <TextView
                         android:id="@+id/stepperValue"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
                         android:text="0"
-                        android:textStyle="bold"
+
                         android:textColor="@color/app_color"
-                        android:textSize="30sp"
+                        android:textSize="25sp"
                         android:textAlignment="center"
                         android:background="#ECE5E5"/>
 
                     <ImageButton
                         android:id="@+id/stepperMinus"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:background="@color/app_color"
+                        android:layout_width="37dp"
+                        android:layout_height="37dp"
+                        android:background="@color/white"
                         app:srcCompat="@drawable/ic_indeterminate_check_box_black_24dp"/>
                 </LinearLayout>
 
@@ -138,7 +137,7 @@
             android:id="@+id/itemImage"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_marginEnd="8dp"
             android:layout_centerVertical="true"
             android:layout_marginTop="10dp"

@@ -18,9 +18,6 @@ import com.example.mycart.R;
 public class GroceryFragment extends Fragment {
 
 
-    public GroceryFragment() {
-        // Required empty public constructor
-    }
 
 
     @Override

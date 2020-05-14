@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ProfileActivity">
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/app_color">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="5dp"
+                    android:onClick="backpressed"
+                    android:layout_gravity="center_vertical"
+                    app:srcCompat="@drawable/arrow_back"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    android:layout_marginStart="8dp"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/profile"
+                    />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutProfile"
+        android:layout_width="match_parent"
+        android:layout_height="230dp"
+        android:background="@color/app_color"
+        android:layout_below="@+id/relativeLayout">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="25dp"
+            android:elevation="10dp"
+            app:cardCornerRadius="15dp"
+            android:layout_marginStart="25dp"
+            android:layout_height="180dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_image"
+                    android:layout_width="110dp"
+                    android:layout_height="126dp"
+                    android:src="@drawable/profile_account"
+                    android:layout_marginStart="15dp"
+                    android:layout_gravity="center_vertical"
+                    app:civ_border_width="1dp"
+                    app:civ_border_color="#FF000000"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="25sp"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Don Smith"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="20sp"
+                        android:textColor="@color/black"
+                        android:layout_gravity="center_horizontal"
+                        android:text="Location"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18sp"
+                        android:textColor="@color/colorAccent"
+                        android:layout_gravity="center_horizontal"
+                        android:text="9876590854"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            app:srcCompat="@drawable/address"/>
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            app:srcCompat="@drawable/ic_edit_location_black_24dp"/>
+
+                        <ImageView
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            app:srcCompat="@drawable/edit"/>
+
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+
+        </androidx.cardview.widget.CardView>
+
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relativeLayoutProfile"
+        android:orientation="vertical">
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/sliding_tabsProfile"
+            android:layout_width="match_parent"
+            app:tabMode="fixed"
+            android:background="@color/app_color"
+            app:tabTextColor="@color/white"
+            app:tabSelectedTextColor="@color/yellow"
+            app:tabIndicatorColor="@color/white"
+            app:tabGravity="center"
+            app:tabIndicatorHeight="4dp"
+            android:layout_height="wrap_content"/>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpagerProfile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/sliding_tabsProfile"
+
+            android:background="@android:color/white" />
+
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
