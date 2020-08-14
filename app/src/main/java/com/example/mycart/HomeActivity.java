@@ -9,9 +9,11 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.mycart.Fragments.Adapter.SampleFragmentPagerAdapter;
@@ -22,12 +24,14 @@ import com.example.mycart.SqlDB.QueryClass;
 import com.example.mycart.SqlDB.SqlDataStore;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
+import com.squareup.picasso.Picasso;
 
 public class HomeActivity extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
     ViewPager viewPager;
     TabLayout tabLayout;
+    ImageView imageView;
     private int[] tabIcons = {
             R.drawable.vegetablesicon8,
             R.drawable.groceryicons8,
@@ -39,10 +43,43 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         init();
+
+        Uri uri = Uri.parse("https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX2614542.jpg");
+        Picasso.get().load(uri).placeholder(R.drawable.placeholder).into(imageView);
+
         bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
         //for layouts
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                Log.e("selected tab",tabLayout.getSelectedTabPosition()+"");
+                if (tabLayout.getSelectedTabPosition() == 1){
+                    Uri uri = Uri.parse("https://i.dlpng.com/static/png/229706_preview.png");
+                    Picasso.get().load(uri).placeholder(R.drawable.placeholder).into(imageView);
+//                    imageView.setImageURI(uri);
+//                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.grocery_main));
+                }else {
+                    Uri uri = Uri.parse("https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX2614542.jpg");
+                    Picasso.get().load(uri).placeholder(R.drawable.placeholder).into(imageView);
+//                    imageView.setImageURI(uri);
+
+//                    imageView.setImageDrawable(getResources().getDrawable(R.drawable.vegetable_main));
+                }
+            }
+
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
+
         setupTabIcons();
         if (checkCartItems()){
             Toast.makeText(this, "U Have Items in Cart", Toast.LENGTH_LONG).show();
@@ -54,6 +91,7 @@ public class HomeActivity extends AppCompatActivity {
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         viewPager = findViewById(R.id.viewpager);
         tabLayout = findViewById(R.id.sliding_tabs);
+        imageView = findViewById(R.id.homeImageView);
     }
 
     private void setupViewPager(ViewPager viewPager) {

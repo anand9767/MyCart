@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
     tools:context=".HomeActivity">
 
     <FrameLayout
@@ -15,7 +16,7 @@
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:layout_gravity="bottom"
             android:background="@color/app_color"
             app:itemIconTint="@color/yellow"
@@ -26,16 +27,43 @@
 
     </FrameLayout>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp"
+        >
+
+
+
+        <ImageView
+            android:id="@+id/homeImageView"
+            android:layout_width="match_parent"
+            app:srcCompat="@drawable/placeholder"
+            android:layout_height="240dp"/>
+
+        <Spinner
+            android:layout_width="130dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner_background"
+            android:layout_marginStart="10dp"
+            />
+
+    </RelativeLayout>
+
+
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
-        app:tabMode="fixed"
+        app:tabMode="scrollable"
+        android:layout_marginTop="240dp"
         android:background="@color/app_color"
         app:tabTextColor="@color/white"
         app:tabSelectedTextColor="@color/yellow"
+        app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
         app:tabIndicatorColor="@color/white"
-        app:tabGravity="center"
-        app:tabIndicatorHeight="4dp"
+        app:tabIndicatorHeight="0dp"
+        app:tabInlineLabel="true"
         android:layout_height="wrap_content"/>
 
     <androidx.viewpager.widget.ViewPager
@@ -43,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/sliding_tabs"
-        android:layout_marginBottom="60dp"
+        android:layout_marginBottom="50dp"
         android:background="@android:color/white" />
 
 

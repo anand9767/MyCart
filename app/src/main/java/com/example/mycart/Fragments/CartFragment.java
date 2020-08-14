@@ -1,10 +1,12 @@
 package com.example.mycart.Fragments;
 
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
@@ -16,12 +18,15 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mycart.Adapter.CartItemsAdapter;
 import com.example.mycart.Adapter.ItemAdapter;
+import com.example.mycart.FinalActivity;
 import com.example.mycart.HomeActivity;
 import com.example.mycart.Model.CartItems;
 import com.example.mycart.R;
@@ -46,6 +51,7 @@ public class CartFragment extends AppCompatActivity implements CartItemsAdapter.
 
     ArrayList<CartItems> cartItemsArrayList = new ArrayList<>();
     CartItemsAdapter cartAdapter;
+    double sum = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -97,7 +103,7 @@ public class CartFragment extends AppCompatActivity implements CartItemsAdapter.
         cursor.close();
         sd.close();
 
-        double sum = 0;
+
         for (int i = 0;i<totalPriceList.size();i++){
             sum += totalPriceList.get(i);
         }
@@ -135,5 +141,32 @@ public class CartFragment extends AppCompatActivity implements CartItemsAdapter.
             cartData = true;
         }
         return cartData;
+    }
+
+    //checkoutClick
+    public void checkOut(View view) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view1 = LayoutInflater.from(this).inflate(R.layout.checkout_layout,null);
+        builder.setView(view1);
+        builder.setCancelable(false);
+
+        TextView orderTotal = view1.findViewById(R.id.orderTotalTv);
+        ImageView cancelImage = view1.findViewById(R.id.cancel);
+        Button button = view1.findViewById(R.id.placeOrder);
+        int a = (int) sum;
+        button.setOnClickListener(view22 -> {
+            Intent intent = new Intent(getApplicationContext(), FinalActivity.class);
+            startActivity(intent);
+            finish();
+//            intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+        });
+        orderTotal.setText(String.valueOf(a));
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+        cancelImage.setOnClickListener(view2 -> {
+            alertDialog.dismiss();
+        });
     }
 }

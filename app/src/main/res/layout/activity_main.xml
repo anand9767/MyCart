@@ -18,8 +18,7 @@
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:layout_gravity="center_horizontal"
-            app:srcCompat="@drawable/applogo"
-            />
+            app:srcCompat="@drawable/app_logo" />
 
         <TextView
             android:layout_width="wrap_content"

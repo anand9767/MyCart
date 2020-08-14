@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/otp_background_gradient"
+    tools:context=".EnterOTPActivity">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="260dp"
+        android:layout_height="240dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="70dp"
+        android:layout_marginEnd="30dp"
+        android:elevation="30dp"
+        app:cardCornerRadius="10dp"
+        android:layout_alignParentEnd="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="5dp"
+            android:textStyle="bold"
+            android:text="Mobile Number"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="230dp"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/otpNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:drawableStart="@drawable/ic_round_mobile_friendly_24"
+                android:drawablePadding="5dp"
+                android:singleLine="true"
+                android:inputType="number"
+                android:layout_gravity="center_horizontal"
+                android:hint=" Enter Mobile Number"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/loginButton"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:onClick="proceedClicked"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/button_shape"
+            android:text="Proceed"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>

@@ -142,8 +142,8 @@
                 android:textAllCaps="true"
                 android:textSize="20sp"
                 android:textColor="@color/white"
-                android:background="@drawable/button_shape"
-                android:layout_alignParentBottom="true"/>
+                android:onClick="checkOut"
+                android:background="@drawable/button_shape" />
 
         </LinearLayout>
 

@@ -3,8 +3,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#ECE6E6"
     tools:context=".Fragments.GroceryFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_color"
+            android:orientation="horizontal">
+
+            <SearchView
+                android:id="@+id/SearchViewGrocery"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_margin="7dp"
+                android:iconifiedByDefault="false"
+                android:background="@drawable/search_view_border"
+                android:queryHint="Search For Vegetables">
+
+            </SearchView>
+
+            <ImageButton
+                android:id="@+id/filter_click"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:visibility="gone"
+                android:background="@color/app_color"
+                android:layout_gravity="center_vertical"
+                app:srcCompat="@drawable/ic_filter_list_black_24dp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/filter_layout"
+            android:layout_width="match_parent"
+            android:background="@drawable/filterbackground"
+            android:layout_marginStart="7dp"
+            android:visibility="gone"
+            android:layout_marginEnd="7dp"
+            android:layout_height="wrap_content">
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:text="Staples"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Veggies"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Salad"/>
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Condiments"/>
+
+            </RadioGroup>
+
+
+
+        </RelativeLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recylerViewGrocery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            />
+
+    </LinearLayout>
 
 
 

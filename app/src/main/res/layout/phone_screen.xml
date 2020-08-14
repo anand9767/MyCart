@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@color/app_color">
+
+            <ImageView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/phone_image"
+                />
+
+        </RelativeLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="200dp"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/enter_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:imeOptions="actionGo"
+                android:textSize="14sp"
+                android:layout_marginTop="10dp"
+                android:inputType="number"
+                android:layout_gravity="center_vertical"
+                android:hint="Enter Phone Number"/>
+
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/error_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#E40B0B"
+            android:visibility="gone"
+            android:layout_gravity="center"
+            android:text="Enter a valid mobile number"
+            />
+
+
+        <Button
+            android:id="@+id/proceed"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="Proceed"
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:textSize="20sp"
+            android:textAllCaps="false"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/white"
+            android:background="@drawable/button_shape"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

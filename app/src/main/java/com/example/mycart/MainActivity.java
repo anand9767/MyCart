@@ -2,15 +2,21 @@ package com.example.mycart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 
 import com.example.mycart.SqlDB.QueryClass;
 import com.example.mycart.SqlDB.SqlDataStore;
+import com.example.mycart.Utils.CommonUtils;
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences mySharedPreferences;
+    private String MyPREFERENCES = "MyPrefs";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,15 +25,22 @@ public class MainActivity extends AppCompatActivity {
 
         createTable();
 
-        SqlDataStore sqlDataStore = new SqlDataStore(this);
-        sqlDataStore.open();
-        sqlDataStore.delete(QueryClass.TABLE_ITEMSCART,null);
-        sqlDataStore.close();
+        mySharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
+
+        CommonUtils.deleteCartTable(this,QueryClass.TABLE_ITEMSCART);
+//        CommonUtils.deleteCartTable(this,QueryClass.TABLE_MAIN_ITEMS);
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(MainActivity.this,LoginActivity.class));
+
+                if (mySharedPreferences.getString("login","").equals("1")){
+                    startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                }else {
+                    startActivity(new Intent(MainActivity.this,LoginActivity.class));
+                }
+
                 finish();
             }
         },1000);
@@ -41,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             SqlDataStore sqlDataStore = new SqlDataStore(this);
             sqlDataStore.open();
             sqlDataStore.createtable(QueryClass.TABLE_ITEMSCART,QueryClass.CREATE_ITEMSCART);
+            sqlDataStore.createtable(QueryClass.TABLE_MAIN_ITEMS,QueryClass.CREATE_ITEMSMAIN);
 
             sqlDataStore.close();
         }catch (Exception e){

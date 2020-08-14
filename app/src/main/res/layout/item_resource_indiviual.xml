@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/background"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="370dp"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        android:layout_height="400dp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="80dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="140dp"
+            android:layout_marginEnd="20dp"
+            android:elevation="20dp"
+            app:cardCornerRadius="40dp"
+            app:cardBackgroundColor="@color/colorAccent"
+            android:layout_height="80dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="9dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="Rs"
+
+                    />
+
+                <TextView
+                    android:id="@+id/calculatedPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="25dp"
+                    android:text="0"
+
+                    />
+
+            </LinearLayout>
+
+
+
+        </androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/mainImage"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:layout_marginStart="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="27sp"
+                android:textColor="@color/app_color"
+                android:text="Spinach"
+                />
+
+            <TextView
+                android:id="@+id/itemDescription"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="Spinach is leafy is green vegetable."
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="230dp"
+            android:layout_marginEnd="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/itemPriceTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:text="50"
+                android:textColor="@color/app_color"
+                android:textSize="45sp"
+                />
+
+            <TextView
+                android:id="@+id/itemQtyTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-7dp"
+                android:text="Rs/Bunch"
+                android:textColor="#E40E0E"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/stepperPlus"
+                android:background="@drawable/ic_add_box_black_24dp"
+                android:layout_width="57dp"
+                android:layout_height="57dp"
+                />
+
+            <TextView
+                android:id="@+id/stepperValue"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="#ECE5E5"
+                android:text="0"
+                android:layout_gravity="center"
+                android:textAlignment="center"
+                android:textColor="@color/app_color"
+                android:textSize="25sp" />
+
+            <ImageButton
+                android:id="@+id/stepperMinus"
+                android:background="@drawable/ic_indeterminate_check_box_black_24dp"
+                android:layout_width="57dp"
+                android:layout_height="57dp"
+                 />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -10,6 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.mycart.Model.CartItems;
+import com.example.mycart.Model.Items;
 
 import java.util.ArrayList;
 
@@ -38,6 +39,7 @@ public class SqlDataStore  {
         @Override
         public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
             sqLiteDatabase.execSQL("DROP TABLE  " + QueryClass.TABLE_ITEMSCART);
+            sqLiteDatabase.execSQL("DROP TABLE  " + QueryClass.TABLE_MAIN_ITEMS);
             onCreate(sqLiteDatabase);
         }
     }
@@ -147,6 +149,48 @@ public class SqlDataStore  {
         return itemDetails;
 
     }
+
+    //get all item data
+    public ArrayList<Items> getAllItems() {
+
+        ArrayList<Items> itemDetails = new ArrayList<>();
+
+        String USER_DETAIL_SELECT_QUERY = "SELECT * FROM " + QueryClass.TABLE_MAIN_ITEMS;
+
+        myDatabase = dbHelper.getReadableDatabase();
+        Cursor cursor = myDatabase.rawQuery(USER_DETAIL_SELECT_QUERY, null);
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    Items items = new Items();
+                    items.setItemId(cursor.getString(cursor.getColumnIndex(QueryClass.ITEM_MAIN_ID)));
+                    items.setItemName(cursor.getString(cursor.getColumnIndex(QueryClass.ITEM_MAIN_NAME)));
+                    items.setItemDes(cursor.getString(cursor.getColumnIndex(QueryClass.ITEM_MAIN_DESC)));
+                    items.setItemPrice(cursor.getString(cursor.getColumnIndex(QueryClass.ITEM_MAIN_PRICE)));
+                    items.setItemPriceDesc(cursor.getString(cursor.getColumnIndex(QueryClass.ITEM_MAIN_MEASURE)));
+                    items.setImage(cursor.getString(cursor.getColumnIndex(QueryClass.ITEM_MAIN_IMAGE)));
+                    items.setType(cursor.getString(cursor.getColumnIndex(QueryClass.ITEM_MAIN_TYPE)));
+                    items.setSubType(cursor.getString(cursor.getColumnIndex(QueryClass.ITEM_MAIN_SUBTYPE)));
+
+
+
+                    itemDetails.add(items);
+
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            Log.d("Sql", "Error while trying to get posts from database");
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return itemDetails;
+
+    }
+
 
 
 }
