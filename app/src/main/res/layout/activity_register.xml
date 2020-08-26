@@ -61,42 +61,40 @@
                 android:id="@+id/progressBar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:layout_centerInParent="true"
-                />
+                android:visibility="gone" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:text="OTP"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="OTP"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
-        <LinearLayout
-            android:id="@+id/lineLayout"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginTop="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:orientation="vertical"
-            android:background="#105996"/>
+            <LinearLayout
+                android:id="@+id/lineLayout"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_marginEnd="20dp"
+                android:background="#105996"
+                android:orientation="vertical" />
 
             <TextView
                 android:id="@+id/mobileText"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/lineLayout"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:textSize="16sp"
+                android:text="OTP Sent on Mobile Number"
                 android:textAlignment="center"
                 android:textColor="@color/app_color"
-                android:text="OTP Sent on Mobile Number"
-                android:layout_height="wrap_content"
-                />
+                android:textSize="16sp" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -105,55 +103,53 @@
                 android:orientation="vertical">
 
                 <com.poovam.pinedittextfield.CirclePinField
+                    android:id="@+id/circleField"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="text"
-                    app:noOfFields="6"
-                    android:textSize="30sp"
-                    android:textColor="@color/black"
                     android:layout_marginTop="5dp"
+                    android:inputType="text"
+                    android:textColor="@color/black"
                     android:textSelectHandle="@drawable/text_handle"
+                    android:textSize="30sp"
                     app:circleRadius="12dp"
-                    app:fillerRadius="2dp"
-                    app:fillerColor="#0C2421"
                     app:fieldBgColor="#fff"
-                    android:id="@+id/circleField"/>
-                
+                    app:fillerColor="#0C2421"
+                    app:fillerRadius="2dp"
+                    app:noOfFields="6" />
+
                 <Button
                     android:id="@+id/next_otp"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/button_shape"
-                    android:text="Next"
-                    android:onClick="nextClickOtp"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:layout_marginTop="20dp"
-                    android:textAllCaps="false"
                     android:layout_gravity="center_horizontal"
-                    />
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/button_shape"
+                    android:onClick="nextClickOtp"
+                    android:text="Next"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
 
             </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_marginBottom="50dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:layout_alignParentBottom="true"
-            android:background="#105996"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="50dp"
+                android:background="#105996" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/app_color"
                 android:layout_marginBottom="10dp"
-                android:text="1 of 3"
-                />
+                android:text="1 of 2"
+                android:textColor="@color/app_color"
+                android:textSize="15sp" />
 
         </RelativeLayout>
 
@@ -325,7 +321,7 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/app_color"
                 android:layout_marginBottom="10dp"
-                android:text="2 of 3"
+                android:text="2 of 2"
                 />
 
         </RelativeLayout>
@@ -333,14 +329,14 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/addressCardView"
+        android:id="@+id/restPassCardView"
         android:layout_width="match_parent"
-        android:layout_height="540dp"
-        android:layout_marginStart="70dp"
         app:cardCornerRadius="20dp"
-        android:visibility="visible"
         app:cardElevation="20dp"
-        android:layout_centerInParent="true">
+        android:layout_marginEnd="70dp"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_height="350dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -354,7 +350,7 @@
                 android:textStyle="bold"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/black"
-                android:text="Address"/>
+                android:text="Reset Password"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -366,113 +362,58 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:layout_centerInParent="true"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
+
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="250dp"
+                    android:layout_width="200dp"
+                    app:passwordToggleEnabled="true"
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/enter_address_et"
+                        android:id="@+id/etResetPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionGo"
                         android:textSize="14sp"
+                        android:inputType="textPassword"
                         android:layout_gravity="center_vertical"
-                        android:hint="Enter Full Address"/>
+                        android:hint="Enter new Password"/>
 
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="250dp"
+                    android:layout_width="200dp"
+                    app:passwordToggleEnabled="true"
                     android:layout_height="wrap_content">
 
                     <EditText
-                        android:id="@+id/town_et"
+                        android:id="@+id/etResetConPass"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:imeOptions="actionGo"
                         android:textSize="14sp"
+                        android:inputType="textPassword"
                         android:layout_gravity="center_vertical"
-                        android:hint="Town/City/Village"/>
+                        android:hint="Confirm Password"/>
 
 
                 </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/landmark_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionGo"
-                        android:textSize="14sp"
-                        android:layout_gravity="center_vertical"
-                        android:hint="LandMark"/>
-
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content">
-
-                    <EditText
-                        android:id="@+id/district_et"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:imeOptions="actionGo"
-                        android:textSize="14sp"
-                        android:layout_gravity="center_vertical"
-                        android:hint="District"/>
-
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="5dp"
-                    android:text="Select Address Type"
-                    />
-
-                <RadioGroup
-                    android:id="@+id/addressRadioGroup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:orientation="horizontal">
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="14sp"
-                        android:text="Home"/>
-
-                    <RadioButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Other"
-                        android:textSize="14sp" />
-
-                </RadioGroup>
 
                 <Button
-                    android:id="@+id/next_address"
+                    android:id="@+id/finishSetPass"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_shape"
-                    android:text="Next"
-                    android:onClick="addressNextClick"
+                    android:text="Finish"
+                    android:onClick="resetPassword"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:layout_marginTop="20dp"
                     android:textAllCaps="false"
+                    android:layout_marginTop="30dp"
                     android:layout_gravity="center_horizontal"
                     />
 
@@ -498,11 +439,13 @@
                 android:layout_centerHorizontal="true"
                 android:textColor="@color/app_color"
                 android:layout_marginBottom="10dp"
-                android:text="3 of 3"
+                android:text="2 of 2"
                 />
 
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
+
 
 </RelativeLayout>

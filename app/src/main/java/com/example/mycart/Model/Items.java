@@ -2,9 +2,30 @@ package com.example.mycart.Model;
 
 import android.net.Uri;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Items {
 
-    private String itemId,itemName,itemDes,itemPrice,itemPriceDesc,quantity,totalPrice,image,type,subType;
+    @SerializedName("itemId")
+    private String itemId;
+    @SerializedName("itemName")
+    private String itemName;
+    @SerializedName("itemDesc")
+    private String itemDes;
+    @SerializedName("itemPrice")
+    private String itemPrice;
+    @SerializedName("itemPriceDesc")
+    private String itemPriceDesc;
+    @SerializedName("itemQty")
+    private String quantity;
+    @SerializedName("itemTotalPrice")
+    private String totalPrice;
+    @SerializedName("itemImage")
+    private String image;
+    @SerializedName("itemType")
+    private String type;
+    @SerializedName("itemSubType")
+    private String subType;
 //    Uri itemImage;
 
 

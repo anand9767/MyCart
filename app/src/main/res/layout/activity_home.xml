@@ -38,15 +38,10 @@
             android:id="@+id/homeImageView"
             android:layout_width="match_parent"
             app:srcCompat="@drawable/placeholder"
+            android:visibility="gone"
             android:layout_height="240dp"/>
 
-        <Spinner
-            android:layout_width="130dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/spinner_background"
-            android:layout_marginStart="10dp"
-            />
+
 
     </RelativeLayout>
 
@@ -56,7 +51,7 @@
         android:id="@+id/sliding_tabs"
         android:layout_width="match_parent"
         app:tabMode="scrollable"
-        android:layout_marginTop="240dp"
+        android:layout_marginTop="0dp"
         android:background="@color/app_color"
         app:tabTextColor="@color/white"
         app:tabSelectedTextColor="@color/yellow"
@@ -65,6 +60,29 @@
         app:tabIndicatorHeight="0dp"
         app:tabInlineLabel="true"
         android:layout_height="wrap_content"/>
+
+    <ProgressBar
+        android:id="@+id/addressProgressBar"
+        android:layout_width="30dp"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="50dp"
+        android:layout_height="30dp"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="@color/yellow"
+        />
+
+    <Spinner
+        android:id="@+id/addressSpinner"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="5dp"
+        android:layout_alignParentEnd="true"
+        android:gravity="center"
+        android:background="@drawable/spinner_background"
+        android:layout_marginStart="10dp"
+        />
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager"

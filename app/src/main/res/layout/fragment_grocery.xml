@@ -7,6 +7,18 @@
     android:background="#ECE6E6"
     tools:context=".Fragments.GroceryFragment">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ProgressBar
+            android:id="@+id/ProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_height="wrap_content"
+            />
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +37,7 @@
                 android:layout_margin="7dp"
                 android:iconifiedByDefault="false"
                 android:background="@drawable/search_view_border"
-                android:queryHint="Search For Vegetables">
+                android:queryHint="Search For Grocery">
 
             </SearchView>
 
@@ -88,6 +100,8 @@
             />
 
     </LinearLayout>
+
+    </RelativeLayout>
 
 
 

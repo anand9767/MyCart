@@ -6,11 +6,13 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.mycart.Fragments.Adapter.SampleFragmentPagerAdapter;
 import com.example.mycart.Fragments.CurrentOrdersFragment;
@@ -29,15 +31,26 @@ public class ProfileActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
     SharedPreferences mySharedPreferences;
+    TextView name,number;
     private String MyPREFERENCES = "MyPrefs";
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        mySharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
         viewPager = findViewById(R.id.viewpagerProfile);
         tabLayout = findViewById(R.id.sliding_tabsProfile);
+        name= findViewById(R.id.name);
+        number = findViewById(R.id.number);
+
+
+        //setProfile name
+        name.setText(mySharedPreferences.getString("fName","")+" "+mySharedPreferences.getString("lName",""));
+        number.setText(mySharedPreferences.getString("contactId",""));
 
         setupViewPager(viewPager);
         tabLayout.setupWithViewPager(viewPager);
@@ -56,7 +69,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     public void LogOut(View view) {
 //        CommonUtils.showCustomDialog(this,"Alert !","Are You Sure You Want to Log out",true);
-        mySharedPreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
+
         SharedPreferences.Editor editor = mySharedPreferences.edit();
         editor.putString("login","0");
         editor.apply();
@@ -68,32 +81,11 @@ public class ProfileActivity extends AppCompatActivity {
 
     }
 
-//    public class SampleFragmentPagerAdapter extends FragmentPagerAdapter {
-//        private final List<Fragment> mFragmentList = new ArrayList<>();
-//        private final List<String> mFragmentTitleList = new ArrayList<>();
-//
-//        public SampleFragmentPagerAdapter(FragmentManager manager) {
-//            super(manager);
-//        }
-//        @Override
-//        public Fragment getItem(int position) {
-//            return mFragmentList.get(position);
-//        }
-//
-//        @Override
-//        public int getCount() {
-//            return mFragmentList.size();
-//        }
-//
-//        public void addFragment(Fragment fragment, String title) {
-//            mFragmentList.add(fragment);
-//            mFragmentTitleList.add(title);
-//        }
-//
-//        @Override
-//        public CharSequence getPageTitle(int position) {
-//            return mFragmentTitleList.get(position);
-//        }
-//
-//    }
+    public void addressClick(View view) {
+
+        startActivity(new Intent(getApplicationContext(),AddAddress.class));
+    }
+
+
+
 }

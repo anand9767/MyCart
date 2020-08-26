@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         CommonUtils.deleteCartTable(this,QueryClass.TABLE_ITEMSCART);
-//        CommonUtils.deleteCartTable(this,QueryClass.TABLE_MAIN_ITEMS);
+        CommonUtils.deleteCartTable(this,QueryClass.TABLE_MAIN_ITEMS);
 
         new Handler().postDelayed(new Runnable() {
             @Override

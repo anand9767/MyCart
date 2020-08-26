@@ -61,7 +61,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         holder.itemPrice.setText(items.getItemPrice());
         holder.itemPriceTag.setText(items.getItemPriceDesc());
         Uri uri = Uri.parse(items.getImage());
-        Picasso.get().load(uri).placeholder(R.drawable.placeholder).into(holder.itemImage);
+        Picasso.get().load(uri).placeholder(R.drawable.placeholder).fit().into(holder.itemImage);
 
         holder.nextImage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -94,7 +94,8 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
 
         TextView itemName,itemDes,itemPrice,itemPriceTag,stepperValue,totalPrice;
 //        ImageButton buttonPlus,buttonMinus;
-        ImageView itemImage,nextImage;
+        ImageView itemImage;
+        LinearLayout nextImage;
 //        Button btn;
 //        LinearLayout llQty,llBtn;
 

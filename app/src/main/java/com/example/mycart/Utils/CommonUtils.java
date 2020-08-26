@@ -2,8 +2,11 @@ package com.example.mycart.Utils;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,9 +14,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.mycart.Adapter.ItemAdapter;
+import com.example.mycart.Model.Items;
 import com.example.mycart.R;
 import com.example.mycart.SqlDB.QueryClass;
 import com.example.mycart.SqlDB.SqlDataStore;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CommonUtils {
 
@@ -73,6 +81,28 @@ public class CommonUtils {
                 alertDialog.dismiss();
             }
         });
+    }
+
+    // check internet connection
+    public static boolean isOnline(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo netInfo = cm.getActiveNetworkInfo();
+        if (netInfo != null && netInfo.isConnectedOrConnecting()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static void filterAccording(ArrayList<Items> ruleslist, ItemAdapter rulesAdapter, String filterName){
+        ArrayList<Items> newList = new ArrayList<>();
+        for (Items item:ruleslist){
+            String itemName = item.getType().toLowerCase() ;
+            if (itemName.contains(filterName)){
+                newList.add(item);
+            }
+        }
+        rulesAdapter.updateList(newList);
     }
 
 }

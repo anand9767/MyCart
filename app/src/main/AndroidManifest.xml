@@ -21,7 +21,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".EnterOTPActivity"></activity>
+        <activity android:name=".AddAddress"></activity>
+        <activity android:name=".EnterOTPActivity" />
         <activity android:name=".FinalActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".ProfileActivity" />

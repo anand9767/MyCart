@@ -43,8 +43,10 @@ public class RegisterActivity extends AppCompatActivity {
     CardView otpCard;
     @BindView(R.id.personalDetCardView)
     CardView personalCardView;
-    @BindView(R.id.addressCardView)
-    CardView addressCardView;
+//    @BindView(R.id.addressCardView)
+//    CardView addressCardView;
+    @BindView(R.id.restPassCardView)
+    CardView resetPassCardView;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
 
@@ -64,24 +66,15 @@ public class RegisterActivity extends AppCompatActivity {
     @BindView(R.id.etConPass)
     EditText etConpass;
 
-    //address
-    @BindView(R.id.enter_address_et)
-    EditText etAddress;
-    @BindView(R.id.town_et)
-    EditText etTown;
-    @BindView(R.id.landmark_et)
-    EditText etLandmark;
-    @BindView(R.id.district_et)
-    EditText etDistrict;
+
 
     //radio groups
     @BindView(R.id.genderRadioGroup)
     RadioGroup genderRadioGroup;
-    @BindView(R.id.addressRadioGroup)
-    RadioGroup addressRadioGroup;
+
 
     RadioButton radioButton;
-    String phoneNumber;
+    String phoneNumber,code;
     private String verificationId;
     private FirebaseAuth mAuth;
 
@@ -93,6 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        code = this.getIntent().getExtras().getString("code");
         phoneNumber = this.getIntent().getExtras().getString("number");
         mobileText.setText("OTP sent On Mobile Number \n "+phoneNumber);
         sendVerificationCode("+91"+phoneNumber);
@@ -171,41 +165,16 @@ public class RegisterActivity extends AppCompatActivity {
             radioButton = findViewById(selectedId);
             Toast.makeText(this,radioButton.getText() , Toast.LENGTH_SHORT).show();
 
-            Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_out_right);
-            personalCardView.setAnimation(animation);
-            personalCardView.setVisibility(View.GONE);
-            Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left);
-            addressCardView.setAnimation(animation1);
-            addressCardView.setVisibility(View.VISIBLE);
+//            Animation animation = AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_out_right);
+//            personalCardView.setAnimation(animation);
+//            personalCardView.setVisibility(View.GONE);
+//            Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(), android.R.anim.slide_in_left);
+//            addressCardView.setAnimation(animation1);
+//            addressCardView.setVisibility(View.VISIBLE);
         }
 
     }
 
-    public void addressNextClick(View view) {
-
-        if (etAddress.getText().length() == 0){
-            CommonUtils.showCustomDialog(RegisterActivity.this,"Alert","Enter Address",false);
-
-        }else if (etTown.getText().length() == 0){
-            CommonUtils.showCustomDialog(RegisterActivity.this,"Alert","Enter Town",false);
-
-        }else if (etLandmark.getText().length() == 0){
-            CommonUtils.showCustomDialog(RegisterActivity.this,"Alert","Enter Landmark",false);
-
-        }else if (etDistrict.getText().length() == 0){
-            CommonUtils.showCustomDialog(RegisterActivity.this,"Alert","Enter District",false);
-
-        }else if (addressRadioGroup.getCheckedRadioButtonId() == -1){
-            CommonUtils.showCustomDialog(RegisterActivity.this,"Alert","Please Select Address Type",false);
-        }
-        else {
-            int selectedId = addressRadioGroup.getCheckedRadioButtonId();
-            radioButton = findViewById(selectedId);
-            Toast.makeText(this,radioButton.getText() , Toast.LENGTH_SHORT).show();
-//            Toast.makeText(this, "Account created", Toast.LENGTH_SHORT).show();
-        }
-
-    }
 
     private void verifyCode(String code){
 
@@ -227,8 +196,14 @@ public class RegisterActivity extends AppCompatActivity {
                             otpCard.setAnimation(animation);
                             otpCard.setVisibility(View.GONE);
                             Animation animation1 = AnimationUtils.loadAnimation(getApplicationContext(),android.R.anim.slide_in_left);
-                            personalCardView.setAnimation(animation1);
-                            personalCardView.setVisibility(View.VISIBLE);
+                            if (code.equals("1")){
+                                personalCardView.setAnimation(animation1);
+                                personalCardView.setVisibility(View.VISIBLE);
+                            }else {
+                                resetPassCardView.setAnimation(animation1);
+                                resetPassCardView.setVisibility(View.VISIBLE);
+                            }
+
 
                         }else {
                             Toast.makeText(getApplicationContext(), task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -272,6 +247,10 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
+
+    }
+
+    public void resetPassword(View view) {
 
     }
 }

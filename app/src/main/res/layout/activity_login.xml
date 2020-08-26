@@ -7,7 +7,10 @@
     android:background="@drawable/otp_background_gradient"
     tools:context=".LoginActivity">
 
+
+
     <LinearLayout
+        android:id="@+id/cardImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
@@ -42,10 +45,17 @@
 
 
 
-
-
     </LinearLayout>
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:visibility="gone"
+        android:layout_below="@+id/cardImage"
+        />
 
 
 
@@ -196,6 +206,19 @@
         android:text="Don't have Account?Click Here"
 
         />
+    <TextView
+        android:id="@+id/passTv"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:textColor="#011210"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="15sp"
+        android:layout_marginBottom="50dp"
+        android:text="Reset Password"
+
+        />
+
 
 
 
